@@ -1,0 +1,79 @@
+{
+  "name": "sanity-plugin-studio-translations",
+  "version": "0.1.0",
+  "description": "Studio-side translation tooling for Sanity: Studio language selector, translation status badge, missing-translations structure and language-safe publish/schedule actions.",
+  "keywords": [
+    "sanity",
+    "sanity-plugin",
+    "i18n",
+    "translations",
+    "document-internationalization"
+  ],
+  "license": "MIT",
+  "author": "Marcin Zajadlo <marcin@increo.no>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcinzajadlo/sanity-plugin-studio-translations.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcinzajadlo/sanity-plugin-studio-translations/issues"
+  },
+  "homepage": "https://github.com/marcinzajadlo/sanity-plugin-studio-translations#readme",
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "browserslist": "extends @sanity/browserslist-config",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
+    "watch": "pkg-utils watch --strict",
+    "link-watch": "plugin-kit link-watch",
+    "prepublishOnly": "pnpm run build",
+    "typecheck": "tsc --noEmit"
+  },
+  "sanityPlugin": {
+    "verifyPackage": {
+      "sanityV2Json": false,
+      "eslintImports": false
+    }
+  },
+  "dependencies": {
+    "@sanity/icons": "^5.4.0",
+    "@sanity/ui": "^4.4.12"
+  },
+  "devDependencies": {
+    "@sanity/browserslist-config": "^1.0.5",
+    "@sanity/pkg-utils": "^10.5.6",
+    "@sanity/plugin-kit": "^4.0.20",
+    "@types/react": "^19.2.17",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "sanity": "^6.24.0",
+    "styled-components": "^6.1.19",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "sanity": "^5 || ^6"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
